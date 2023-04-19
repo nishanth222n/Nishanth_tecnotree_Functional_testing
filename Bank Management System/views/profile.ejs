@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Banking System</title>
+    <style>
+    /* Apply a reset to the page */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Style the body and headings */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f2f2f2;
+	padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+body{
+    background-image: url(https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFua3xlbnwwfHwwfHw%3D&w=1000&q=80);
+}
+
+h1, h2, h3 {
+	margin-bottom: 10px;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	color: #008CBA;
+}
+
+h3 {
+	font-size: 1.2rem;
+}
+
+/* Style the forms */
+form {
+	margin-bottom: 20px;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+input[type="number"],
+input[type="submit"] {
+	padding: 5px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	font-size: 1rem;
+}
+
+input[type="number"] {
+	width: 150px;
+}
+
+input[type="submit"] {
+	background-color: #008CBA;
+	color: #fff;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+	background-color: #005F6B;
+}
+
+/* Style the success and error messages */
+.success,
+.error {
+	padding: 10px;
+	margin-bottom: 10px;
+	font-weight: bold;
+}
+
+.success {
+	color: #4CAF50;
+	background-color: #e8f5e9;
+	border: 1px solid #4CAF50;
+}
+
+.error {
+	color: #F44336;
+	background-color: #ffebee;
+	border: 1px solid #F44336;
+}
+
+/* Style the layout of the forms */
+form:nth-child(2),
+form:nth-child(3) {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+form:nth-child(2) input[type="submit"],
+form:nth-child(3) input[type="submit"] {
+	margin-left: 10px;
+}
+
+    </style>
+</head>
+<body>
+	<h1>Welcome to the Banking System</h1>
+	<h2>Account Balance: <%=balance%></h2>
+
+	<h3>Add Amount</h3>
+	<form method="post" action="/add-amount">
+		<label for="add-amount">Amount:</label>
+		<input type="number" id="add-amount" name="amount" min="1" max="10000" required>
+		<input type="submit" value="Add">
+	</form>
+
+	<h3>Withdraw Amount</h3>
+	<form method="post" action="/withdraw-amount">
+		<label for="withdraw-amount">Amount:</label>
+		<input type="number" id="withdraw-amount" name="amount" min="1" max="5000" required>
+		<input type="submit" value="Withdraw">
+	</form>
+
+	<h3>Transfer Amount</h3>
+	<form>
+		<label for="transfer-amount">Amount:</label>
+		<input type="number" id="transfer-amount" name="transfer-amount" min="1" max="5000" required>
+		<label for="transfer-account">Account Number:</label>
+		<input type="number" id="transfer-account" name="transfer-account" min="10000" max="99999" required>
+		<input type="submit" value="Transfer">
+	</form>
+
+</body>
+</html>

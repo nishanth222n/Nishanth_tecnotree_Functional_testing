@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	<style>
+		/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-image: url(https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFua3xlbnwwfHwwfHw%3D&w=1000&q=80);
+}
+
+
+
+/* Form styles */
+form {
+  margin: auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 100px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color:black;
+}
+
+a {
+  color: #4CAF50;
+}
+
+/* Error message styles */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+ 
+#passwordHelpBlock {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #0077cc;
+}
+
+h1{
+	height: 10px;
+}
+
+ </style>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="https://www.pngplay.com/wp-content/uploads/7/Insurance-PNG-Images-HD.png" alt="Insurance Logo">
+			<h1>Insurance</h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/login">Login</a></li>
+				<li><a href="/register">Register</a></li>
+				<li><a href="/contact">Contact Us</a></li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+	<form method="post" action="/login">
+		<h2>Login Form</h2>
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required><br>
+		<input type="submit" id="submit" value="Login" >
+	</form>
+	</main>
+</body>
+</html>

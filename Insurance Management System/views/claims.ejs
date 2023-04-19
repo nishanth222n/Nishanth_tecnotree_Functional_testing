@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Submit a Claim</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        form {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+}
+
+    </style>
+  </head>
+  <body>
+    <h1>Submit a Claim</h1>
+    <form action="/claims" method="post">
+      <label for="claim_status">Claim Status:</label>
+      <input type="text" id="claim_status" name="claim_status" required>
+
+      <label for="claim_date">Claim Date:</label>
+      <input type="date" id="claim_date" name="claim_date" required>
+
+      <label for="claim_description">Claim Description:</label>
+      <textarea id="claim_description" name="claim_description" rows="4" required></textarea>
+
+      <label for="policy_id">Policy ID:</label>
+      <input type="text" id="policy_id" name="policy_id" required>
+
+      <label for="customer_id">Customer ID:</label>
+      <input type="text" id="customer_id" name="customer_id" required>
+
+      <button type="submit">Submit Claim</button>
+    </form>
+  </body>
+</html>

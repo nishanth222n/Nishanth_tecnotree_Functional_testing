@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Form</title>
+	<style>
+		/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+/* Form styles */
+form {
+  margin: auto;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color:black;
+}
+
+a {
+  color: #4CAF50;
+}
+
+/* Error message styles */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+ 
+#passwordHelpBlock {
+  font-size: 12px;
+  color: #999;
+  margin-top: 5px;
+}
+
+body{background-image: url(https://t4.ftcdn.net/jpg/01/19/11/55/360_F_119115529_mEnw3lGpLdlDkfLgRcVSbFRuVl6sMDty.jpg);
+    
+}
+ </style>
+</head>
+<body>
+	<form method="post" action="/login">
+		<%- include('flash-messages') %>
+		<h2>Login Form</h2>
+		<label for="username">Username:</label>
+		<input type="text" id="username" name="username" required><br>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" required><br>
+        <small id="passwordHelpBlock" class="form-text text-muted">
+            Your password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+        </small>
+		<input type="submit" id="submit" value="Login" disabled>
+		<p><a href="/forget">Forgot password?</a></p>
+	</form>
+	
+	<script>
+	const usernameField = document.getElementById('username');
+	const passwordField = document.getElementById('password');
+	const submitButton = document.getElementById('submit');
+	
+	usernameField.addEventListener('input', function() {
+		if (!isValidUsername(usernameField.value)) {
+			usernameField.setCustomValidity('Invalid username');
+		} else {
+			usernameField.setCustomValidity('');
+		}
+		updateSubmitButton();
+	});
+	
+	passwordField.addEventListener('input', function() {
+		if (!isValidPassword(passwordField.value)) {
+			passwordField.setCustomValidity('Invalid password');
+		} else {
+			passwordField.setCustomValidity('');
+		}
+		updateSubmitButton();
+	});
+	
+	function isValidUsername(username) {
+		// Add your validation logic here
+		return username.length >= 5;
+	}
+	
+	function isValidPassword(password) {
+		// Add your validation logic here
+		const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@#$%^&*!]{8,}$/;
+		return regex.test(password);
+	}
+	
+	function updateSubmitButton() {
+		if (usernameField.checkValidity() && passwordField.checkValidity()) {
+			submitButton.disabled = false;
+		} else {
+			submitButton.disabled = true;
+		}
+	}
+	</script>
+	
+</body>
+</html>
